@@ -169,7 +169,10 @@ class MainActivity : AppCompatActivity() {
                     Timber.d("NRY BARCODE IS ${it.rawValue}")
                     Log.d("NRY BARCODE IS", it.rawValue)
                     Toast.makeText(this, it.rawValue.toString(), Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, TesActivity::class.java))
+                    startActivity(
+                        Intent(this, TesActivity::class.java)
+                            .putExtra("result", it.rawValue)
+                    )
                     barcodeScanner.close()
                 }
             }
